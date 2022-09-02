@@ -1,7 +1,7 @@
 const corredoresService = require('../service/corredor.service.js');
 
-const findAllCorredoresController = (req, res) => {
-  const corredores = corredoresService.findAllCorredoresService();
+const findAllCorredoresController = async (req, res) => {
+  const corredores = await corredoresService.findAllCorredoresService();
   if (corredores.length == 0) {
     return res
       .status(404)
@@ -9,14 +9,14 @@ const findAllCorredoresController = (req, res) => {
   }
   res.send(corredores);
 };
-const findByIdCorredorController = (req, res) => {
+const findByIdCorredorController = async (req, res) => {
   const parametrosID = Number(req.params.id);
 
   if (!parametrosID) {
     return res.status(400).send({ message: 'Id invalido!' });
   }
 
-  const escolhaCorredor =
+  const escolhaCorredor = await
     corredoresService.findByIdCorredorservice(parametrosID);
   if (!escolhaCorredor) {
     return res.status(404).send({ message: 'Corredor não encontrado!' });
