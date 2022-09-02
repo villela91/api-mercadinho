@@ -1,7 +1,7 @@
 const corredores = [
   {
     id: 1,
-    sabor: 'grãos, temperos e outros',
+    tipo: 'grãos, temperos e outros',
     descricao: 'corredor onde encontra, café, açucar, arroz e etc.',
     foto: 'C:UsersluizvOneDriveDocumentosapi mercadinhoassetsimgcorredor-do-cereal-no-supermercado-86437456.jpg',
     itens: [
@@ -15,7 +15,7 @@ const corredores = [
   },
   {
     id: 2,
-    sabor: 'massas, condimentos, oleos',
+    tipo: 'massas, condimentos, oleos',
     descricao: 'corredor onde encontra,massas, condimentos, oleos e etc.',
     foto: 'C:UsersluizvOneDriveDocumentosapi mercadinhoassetsimgcorredor-do-cereal-no-supermercado-86437456.jpg',
     itens: [
@@ -29,7 +29,7 @@ const corredores = [
   },
   {
     id: 3,
-    sabor: 'materias de limpeza e higiene pessoal',
+    tipo: 'materias de limpeza e higiene pessoal',
     descricao:
       'corredor onde encontra, materias de limpeza e higiene pessoal e etc.',
     foto: 'C:UsersluizvOneDriveDocumentosapi mercadinhoassetsimgcorredor-do-cereal-no-supermercado-86437456.jpg',
@@ -48,11 +48,29 @@ const findAllCorredoresService = () => {
   return corredores;
 };
 const findByIdCorredorservice = (parametrosID) => {
-    return corredores.find((corredor) => corredor.id === parametrosID);
-  
+  return corredores.find((corredor) => corredor.id === parametrosID);
+};
+const createCorredorService = (newCorredor) => {
+  const newId = corredores.length + 1;
+  newCorredor.id = newId;
+  corredores.push(newCorredor);
+  return newCorredor;
+};
+const updateCorredorService = (id, corredorEdited) => {
+  corredorEdited['id'] = id;
+  const corredorIndex = corredores.findIndex((corredor) => corredor.id == id);
+  corredores[corredorIndex] = corredorEdited;
+  return corredorEdited;
+};
+const deleteCorredorService = (id) => {
+  const corredorIndex = corredores.findIndex((corredor) => corredor.id == id);
+  return corredores.splice(corredorIndex, 1);
 };
 
 module.exports = {
   findAllCorredoresService,
   findByIdCorredorservice,
+  createCorredorService,
+  updateCorredorService,
+  deleteCorredorService,
 };

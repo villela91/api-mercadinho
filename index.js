@@ -3,8 +3,6 @@ const cors = require('cors');
 const port = 3000;
 const app = express();
 const routes = require('./src/routes/corredor.route.js');
-// const controller = require('./src/controller/corredor.controller.js');
-// const service = require('./src/service/corredor.service.js');
 
 app.use(express.json());
 app.use(cors());
