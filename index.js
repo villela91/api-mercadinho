@@ -4,7 +4,7 @@ const cors = require('cors');
 const routes = require('./src/routes/corredor.route.js');
 const connectToDatabase = require('./src/dataBase/dataBase.js');
 
-const port = 3000;
+const port = process.env.PORT||3000;
 const app = express();
 
 connectToDatabase();
