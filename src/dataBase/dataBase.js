@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const connectToDatabase = () => {
   mongoose
-    .connect('mongodb://localhost:27017/mercadinho-db', {
+    .connect(process.env.DATABASE_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
