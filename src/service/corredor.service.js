@@ -6,7 +6,7 @@ const findAllCorredoresService = async() => {
 };
 const findByIdCorredorservice = async (parametrosID) => {
   const corredor =await Corredores.fndById(parametrosID)
-  return corredores;
+  return corredor;
 };
 const createCorredorService = (newCorredor) => {
   const newId = corredores.length + 1;

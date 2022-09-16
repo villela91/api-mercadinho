@@ -19,6 +19,6 @@ const CorredorSchema = new mongoose.Schema({
   },
 });
 
-const corredor = mongoose.model('corredores', CorredorSchema);
+const Corredor = mongoose.model('corredores', CorredorSchema);
 
-module.exports = corredor;
+module.exports = Corredor;
