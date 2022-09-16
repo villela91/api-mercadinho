@@ -1,4 +1,4 @@
-const corredores = require('../models/Corredor')
+const Corredores = require('../models/Corredor')
 
 const findAllCorredoresService = async() => {
   const corredores = await Corredores.find();
