@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const CorredorSchema = new mongoose.Schema({
+  id: { type: String, require: true },
   tipo: {
     type: String,
     require: true,
@@ -13,8 +14,8 @@ const CorredorSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  itens:{
-    type:String,
+  itens: {
+    type: String,
     require: true,
   },
 });

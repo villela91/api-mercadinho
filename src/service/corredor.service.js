@@ -5,24 +5,25 @@ const findAllCorredoresService = async() => {
   return corredores;
 };
 const findByIdCorredorservice = async (parametrosID) => {
-  const corredor =await Corredores.fndById(parametrosID)
+  
+  const corredor =await Corredores.findById(parametrosID)
   return corredor;
 };
 const createCorredorService = (newCorredor) => {
-  const newId = corredores.length + 1;
+  const newId = Corredores.length + 1;
   newCorredor.id = newId;
-  corredores.push(newCorredor);
+  Corredores.create(newCorredor)
   return newCorredor;
 };
 const updateCorredorService = (id, corredorEdited) => {
   corredorEdited['id'] = id;
-  const corredorIndex = corredores.findIndex((corredor) => corredor.id == id);
-  corredores[corredorIndex] = corredorEdited;
+  const corredorIndex = Corredores.findIndex((corredor) => corredor.id == id);
+  Corredores[corredorIndex] = corredorEdited;
   return corredorEdited;
 };
 const deleteCorredorService = (id) => {
-  const corredorIndex = corredores.findIndex((corredor) => corredor.id == id);
-  return corredores.splice(corredorIndex, 1);
+  const corredorIndex = Corredores.findIndex((corredor) => corredor.id == id);
+  return Corredores.splice(corredorIndex, 1);
 };
 
 module.exports = {

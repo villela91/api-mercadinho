@@ -10,7 +10,7 @@ const findAllCorredoresController = async (req, res) => {
   res.send(corredores);
 };
 const findByIdCorredorController = async (req, res) => {
-  const parametrosID = Number(req.params.id);
+  const parametrosID = req.params.id;
 
   if (!parametrosID) {
     return res.status(400).send({ message: 'Id invalido!' });
@@ -24,19 +24,19 @@ const findByIdCorredorController = async (req, res) => {
   res.send(escolhaCorredor);
 };
 const createCorredorController = (req, res) => {
-  const Corredor = req.body;
+  const corredor = req.body;
   if (
-    !Corredor ||
-    !Corredor.tipo ||
-    !Corredor.descricao ||
-    !Corredor.foto ||
-    !Corredor.itens
+    !corredor ||
+    !corredor.tipo ||
+    !corredor.descricao ||
+    !corredor.foto ||
+    !corredor.itens
   ) {
     return res
       .status(400)
       .send({ message: 'envie todos os campos do corredor completo!' });
   }
-  const newCorredor = corredoresService.createCorredorService(Corredor);
+  const newCorredor = corredoresService.createCorredorService(corredor);
   res.status(201).send(newCorredor);
 };
 
